@@ -3,17 +3,17 @@ from flask_sqlalchemy import SQLAlchemy
 from send_email import send_email
 
 app=Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:post@localhost/bmi'
+app.config['SQLALCHEMY_DATABASE_URI']='postgres://xzsamcwtbxmeiy:00b88fcc6159efffe4cbb3077fbcb569c65d7cb78ef54e60edc07b618f0e8c60@ec2-54-227-252-237.compute-1.amazonaws.com:5432/dccpgmh20i9m2u?sslmode=require'
 db=SQLAlchemy(app)
 
 class Data(db.Model):
-    
+
     __tablename__='data'
     id=db.Column(db.Integer,primary_key=True)
     email=db.Column(db.String)
     height=db.Column(db.Integer)
     weight=db.Column(db.Integer)
-    
+
     def __init__(self,email,height,weight):
         self.email=email
         self.height=height
